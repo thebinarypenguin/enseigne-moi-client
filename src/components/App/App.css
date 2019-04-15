@@ -25,3 +25,16 @@
   margin-bottom: 1rem;
   padding: 0.25rem 0.5rem;
 }
+
+.CenterFormContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.AlignRight {
+  text-align: right;
+}
+
+form .Button {
+  margin-top: 1rem;
+}
