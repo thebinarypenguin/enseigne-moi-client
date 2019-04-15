@@ -1,7 +1,9 @@
 .App {
   max-width: 768px;
   margin: 0 auto;
-  border: 1px dotted red;
+  background-color: #ffffff;
+  border: 1px solid #C3C3C3;
+  box-shadow: 0 0px 10px 0 rgba(0,0,0,.2);
 }
 
 .App main {
