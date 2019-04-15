@@ -16,3 +16,7 @@ body {
 :root {
   --font-size: calc(10px + 1vmin);
 }
+
+html, body, #root, .App {
+  height: 100%;
+}
