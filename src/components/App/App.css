@@ -7,3 +7,21 @@
 .App main {
   text-align: center;
 }
+
+.Label {
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.Input {
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0.25rem;
+}
+
+.Button {
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.5rem;
+}
