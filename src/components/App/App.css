@@ -38,3 +38,11 @@
 form .Button {
   margin-top: 1rem;
 }
+
+.Button:hover {
+  background: lightgreen;
+}
+
+input:hover {
+  background: lightgreen;
+}
