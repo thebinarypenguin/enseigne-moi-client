@@ -1,0 +1,26 @@
+#Dashboard {
+
+}
+
+#Dashboard .WordList {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+#Dashboard .WordList h4 {
+  margin-bottom: 0.5rem;
+}
+
+#Dashboard .WordList p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+#Dashboard .WordList p .correct {
+  color: green;
+}
+
+#Dashboard .WordList p .incorrect {
+  color: red;
+}
