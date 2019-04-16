@@ -3,13 +3,14 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #fbca93;
+  /* background-color: #fbca93; */
+  background-color: #FFD3B0;
+  border-bottom: 1px solid #e6bf9f;
   margin-bottom: 3rem;
 }
 
 header h1 {
   margin: 0;
-  color: #2d2d2d;
 }
 
 header h1 a {
@@ -17,13 +18,19 @@ header h1 a {
   color: #2d2d2d;
 }
 
+header h1 a:hover {
+  color: #2d2d2d;
+}
+
 header nav a {
+  color: #2d2d2d;
   text-decoration: none;
   font-size: 1.1rem;
   padding: 0.5rem;
+  border-radius: 5px;
 }
 
 header nav a:hover {
-  color: red;
-
+  color: #E26D5A;
+  background-color: #FFE7D3;
 }
