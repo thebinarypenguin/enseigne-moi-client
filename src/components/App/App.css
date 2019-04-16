@@ -44,10 +44,10 @@ form .Button {
   margin-top: 1rem;
 }
 
-.Button:hover {
-  background: lightgreen;
+a {
+  color: #5a8ee6;
 }
 
-input:hover {
-  background: lightgreen;
+a:hover {
+  color: #E26D5A;
 }
