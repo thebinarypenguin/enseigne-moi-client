@@ -3,9 +3,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  /* background-color: #fbca93; */
-  background-color: #FFD3B0;
-  border-bottom: 1px solid #e6bf9f;
+  background-color: #fbca93;
+  border-bottom: 1px solid #e0b07a;
   margin-bottom: 3rem;
 }
 
@@ -32,5 +31,5 @@ header nav a {
 
 header nav a:hover {
   color: #E26D5A;
-  background-color: #FFE7D3;
+  background-color: #FCE2C4;
 }
