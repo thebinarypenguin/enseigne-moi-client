@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import config from '../../config'
 import TokenService from '../../services/token-service'
+import UserContext from '../../contexts/UserContext';
 
 import './Dashboard.css'
 
@@ -22,18 +23,9 @@ function WordList (props) {
   );
 }
 
-
 class Dashboard extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      language : {},
-      words    : [],
-      error    : null,
-    };
-  }
+  static contextType = UserContext;
 
   componentDidMount() {
 
@@ -51,13 +43,11 @@ class Dashboard extends Component {
       return res.json();
     })
     .then((json) => {
-      this.setState({
-        language: json.language,
-        words: json.words,
-      });
+      this.context.setLanguage(json.language);
+      this.context.setWords(json.words);
     })
     .catch(res => {
-      this.setState({ error: res.error })
+      this.context.setError(res.error);
     });
   }
 
@@ -65,12 +55,12 @@ class Dashboard extends Component {
     return (
       <section id="Dashboard">
 
-        <h2>{this.state.language.name}</h2>
+        <h2>{this.context.language.name}</h2>
 
-        <p>Total correct answers: {this.state.language.total_score}</p>
+        <p>Total correct answers: {this.context.language.total_score}</p>
 
         <h3>Words to practice</h3>
-        <WordList data={this.state.words} />
+        <WordList data={this.context.words} />
 
         <Link to="/learn">Start practicing</Link>
       </section>
