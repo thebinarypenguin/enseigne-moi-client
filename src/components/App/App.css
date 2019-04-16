@@ -1,14 +1,16 @@
 .App {
-  height: 100%;
   max-width: 768px;
   margin: 0 auto;
   background-color: #ffffff;
   border: 1px solid #C3C3C3;
   box-shadow: 0 0px 10px 0 rgba(0,0,0,.2);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .App main {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .Label {
