@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import config from '../../config';
 import TokenService from '../../services/token-service';
 
+import './LearningRoute.css';
+
 class LearningRoute extends Component {
 
   state = {
@@ -13,9 +15,9 @@ class LearningRoute extends Component {
   }
 
   componentDidMount() {
-    // Move me to a component
 
-    // Move me to a service
+    // TODO Move me to a service
+
     fetch(`${config.API_ENDPOINT}/language/head`, {
       headers: {
         'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -28,7 +30,7 @@ class LearningRoute extends Component {
     )
     .then((json) => {
 
-      // Maybe save in context ???
+      // TODO Maybe save in context ???
 
       this.setState({
         nextWord: json.nextWord,
@@ -37,29 +39,28 @@ class LearningRoute extends Component {
         wordIncorrectCount: json.wordIncorrectCount,
       });
     })
-
-
   }
 
   render() {
     return (
       <section id="LearningRoute">
-        implement and style me
 
         <h2>Translate the word:</h2>
 
-        <span>{this.state.nextWord}</span>
+        <span className="word">{this.state.nextWord}</span>
 
-        <p>Your total score is: {this.state.totalScore}</p>
-
-        <form>
-          <label for="learn-guess-input">What's the translation for this word?</label>
-          <input id="learn-guess-input" name="learn-guess-input" type="text" required/>
-          <button type="submit">Submit your answer</button>
-        </form>
+        <div className="CenterFormContainer">
+          <form>
+            <label className="Label" htmlFor="learn-guess-input">What's the translation for this word?</label><br />
+            <input className="Input" id="learn-guess-input" name="learn-guess-input" type="text" required/><br />
+            <button className="Button" type="submit">Submit your answer</button>
+          </form>
+        </div>
 
         <p>You have answered this word correctly {this.state.wordCorrectCount} times.</p>
         <p>You have answered this word incorrectly {this.state.wordIncorrectCount} times.</p>
+        <p>Your total score is: {this.state.totalScore}</p>
+
       </section>
     );
   }
