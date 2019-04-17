@@ -57,9 +57,9 @@ class LearningRoute extends Component {
           </form>
         </div>
 
+        <p>Your total score is: {this.state.totalScore}</p>
         <p>You have answered this word correctly {this.state.wordCorrectCount} times.</p>
         <p>You have answered this word incorrectly {this.state.wordIncorrectCount} times.</p>
-        <p>Your total score is: {this.state.totalScore}</p>
 
       </section>
     );
