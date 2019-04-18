@@ -73,7 +73,8 @@ class LearningRoute extends Component {
         answer: json.answer,
         nextWord: json.nextWord,
       })
-      console.log(json);
+
+      guessInput.value = '';
     });
   }
 
@@ -88,10 +89,9 @@ class LearningRoute extends Component {
         <h2>You were correct! :D</h2>
       )
       outcome = (
-        <>
-        <div className="DisplayScore"><p>Your total score is: {this.state.totalScore}</p></div>
-        <div className="DisplayFeedback"><p>The correct translation for {this.state.previousWord} was {this.state.answer} and you chose {this.state.guess}!</p></div>
-        </>
+        <div className="DisplayFeedback">
+          <p>The correct translation for {this.state.previousWord} was <strong>{this.state.answer}</strong> and you chose <strong>{this.state.guess}</strong>!</p>
+        </div>
       )
       button = (
         <button className="Button" type="submit">Try another word!</button>
@@ -103,10 +103,9 @@ class LearningRoute extends Component {
         <h2>Good try, but not quite right :(</h2>
       )
       outcome = (
-        <>
-        <div className="DisplayScore"><p>Your total score is: {this.state.totalScore}</p></div>
-        <div className="DisplayFeedback"><p>The correct translation for {this.state.previousWord} was {this.state.answer} and you chose {this.state.guess}!</p></div>
-        </>
+        <div className="DisplayFeedback">
+          <p>The correct translation for {this.state.previousWord} was <strong>{this.state.answer}</strong> and you chose <strong>{this.state.guess}</strong>!</p>
+        </div>
       );
 
       button = (
@@ -117,21 +116,21 @@ class LearningRoute extends Component {
     return (
       <section id="LearningRoute">
 
-        { outcome }
+        { header }
 
-        {header}
+        { outcome }
 
         <span className="word">{this.state.nextWord}</span>
 
         <div className="CenterFormContainer">
           <form onSubmit={this.handleFormSubmit}>
             <label className="Label" htmlFor="learn-guess-input">What's the translation for this word?</label><br />
-            <input className="Input" id="learn-guess-input" name="guessInput" type="text" required/><br />
+            <input className="Input" id="learn-guess-input" name="guessInput" type="text" defaultValue="" required/><br />
             {button}
           </form>
         </div>
 
-        <p>Your total score is: {this.state.totalScore}</p>
+        <div className="DisplayScore"><p>Your total score is: {this.state.totalScore}</p></div>
         <p>You have answered this word correctly {this.state.wordCorrectCount} times.</p>
         <p>You have answered this word incorrectly {this.state.wordIncorrectCount} times.</p>
 

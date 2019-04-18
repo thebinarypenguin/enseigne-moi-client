@@ -16,9 +16,7 @@ class RegistrationRoute extends Component {
   render() {
     return (
       <section id="RegistrationRoute">
-        <p>
-          Practice learning a language with the spaced reptition revision technique.
-        </p>
+        <p>Practice learning a language with the spaced reptition revision technique.</p>
         <h2>Sign up</h2>
         <div className="CenterFormContainer">
           <RegistrationForm
