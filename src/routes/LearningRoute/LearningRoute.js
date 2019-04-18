@@ -8,6 +8,8 @@ import './LearningRoute.css';
 class LearningRoute extends Component {
 
   state = {
+    guess: null,
+    previousWord: null,
     nextWord: null,
     totalScore: null,
     wordCorrectCount: null,
@@ -41,19 +43,91 @@ class LearningRoute extends Component {
     })
   }
 
+  handleFormSubmit = (ev) => {
+
+    ev.preventDefault();
+
+    const  { guessInput } = ev.target;
+
+    fetch(`${config.API_ENDPOINT}/language/guess`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization':`bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({guess: guessInput.value})
+    })
+    .then(res =>
+      (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+    )
+    .then(json => {
+
+      this.setState({
+        previousWord: this.state.nextWord,
+        guess: guessInput.value,
+        correct: json.isCorrect,
+        totalScore: json.totalScore,
+        translation: json.translation,
+        answer: json.answer,
+        nextWord: json.nextWord,
+      })
+      console.log(json);
+    });
+  }
+
   render() {
+
+    let outcome;
+    let button = <button className="Button" type="submit">Submit your answer</button>;
+    let header = <h2>Translate the word:</h2>;
+
+    if (this.state.correct === true) {
+      header = (
+        <h2>You were correct! :D</h2>
+      )
+      outcome = (
+        <>
+        <div className="DisplayScore"><p>Your total score is: {this.state.totalScore}</p></div>
+        <div className="DisplayFeedback"><p>The correct translation for {this.state.previousWord} was {this.state.answer} and you chose {this.state.guess}!</p></div>
+        </>
+      )
+      button = (
+        <button className="Button" type="submit">Try another word!</button>
+      )
+    }
+
+    if (this.state.correct === false) {
+      header = (
+        <h2>Good try, but not quite right :(</h2>
+      )
+      outcome = (
+        <>
+        <div className="DisplayScore"><p>Your total score is: {this.state.totalScore}</p></div>
+        <div className="DisplayFeedback"><p>The correct translation for {this.state.previousWord} was {this.state.answer} and you chose {this.state.guess}!</p></div>
+        </>
+      );
+
+      button = (
+        <button className="Button" type="submit">Try another word!</button>
+      )
+    }
+
     return (
       <section id="LearningRoute">
 
-        <h2>Translate the word:</h2>
+        { outcome }
+
+        {header}
 
         <span className="word">{this.state.nextWord}</span>
 
         <div className="CenterFormContainer">
-          <form>
+          <form onSubmit={this.handleFormSubmit}>
             <label className="Label" htmlFor="learn-guess-input">What's the translation for this word?</label><br />
-            <input className="Input" id="learn-guess-input" name="learn-guess-input" type="text" required/><br />
-            <button className="Button" type="submit">Submit your answer</button>
+            <input className="Input" id="learn-guess-input" name="guessInput" type="text" required/><br />
+            {button}
           </form>
         </div>
 
