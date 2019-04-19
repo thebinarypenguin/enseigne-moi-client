@@ -51,3 +51,8 @@ a {
 a:hover {
   color: #E26D5A;
 }
+
+.FormError {
+  color: red;
+  font-weight: bold;
+}
