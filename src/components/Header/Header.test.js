@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import Header from "./Header";
 import { UserProvider } from "../../contexts/UserContext";
+import { BrowserRouter } from "react-router-dom";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
   ReactDOM.render(
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <Header />
       </UserProvider>
     </BrowserRouter>,
     div

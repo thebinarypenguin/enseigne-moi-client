@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import Button from "./Button";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "../../contexts/UserContext";
 
@@ -9,7 +9,7 @@ it("renders without crashing", () => {
   ReactDOM.render(
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <Button />
       </UserProvider>
     </BrowserRouter>,
     div
