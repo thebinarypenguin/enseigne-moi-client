@@ -59,8 +59,13 @@ class Dashboard extends Component {
 
         <p>Total correct answers: {this.context.language.total_score}</p>
 
-        <h3>Words to practice</h3>
-        <WordList data={this.context.words} />
+        <div className="CenterFormContainer">
+          <h3>Words to practice</h3>
+        </div>
+
+        <div className="CenterFormContainer">
+          <WordList data={this.context.words} />
+        </div>
 
         <Link to="/learn">Start practicing</Link>
       </section>
