@@ -26,8 +26,6 @@ class LearningRoute extends Component {
 
   componentDidMount() {
 
-    // TODO Move me to a service
-
     this.getNextWord();
   }
 
@@ -40,7 +38,6 @@ class LearningRoute extends Component {
     if (guessInput) {
       this.makeGuess(guessInput.value);
     } else {
-      // this.getNextWord();
       this.setState({
         word: this.state.nextWord,
         wordCorrectCount: this.state.nextWordCorrectCount,
@@ -69,18 +66,15 @@ class LearningRoute extends Component {
     )
     .then(json => {
 
-      let total = this.state.totalScore;
       let correctCount = this.state.wordCorrectCount;
       let incorrectCount = this.state.wordIncorrectCount;
       if (json.isCorrect) {
         correctCount += 1;
-        // total += 1;
       } else {
         incorrectCount += 1;
       }
 
       this.setState({
-        // previousWord: this.state.nextWord,
         guess: guess,
         correct: json.isCorrect,
         answer: json.answer,
@@ -110,8 +104,6 @@ class LearningRoute extends Component {
         : res.json()
     )
     .then((json) => {
-
-      // TODO Maybe save in context ???
 
       this.setState({
         word: json.nextWord,
@@ -188,8 +180,6 @@ class LearningRoute extends Component {
     return (
       <section id="LearningRoute">
 
-        {/* <p>Your total score is: {this.state.totalScore}</p> */}
-
         { header }
 
         { outcome }
@@ -215,67 +205,6 @@ class LearningRoute extends Component {
     }
 
     return this.renderPrompt();
-
-    // let outcome;
-    // let button = <button className="Button" type="submit">Submit your answer</button>;
-    // let header = <h2>Translate the word:</h2>;
-
-    // if (this.state.correct === true) {
-    //   header = (
-    //     <h2>You were correct! :D</h2>
-    //   )
-    //   outcome = (
-    //     <div className="DisplayFeedback">
-    //       <p>The correct translation for {this.state.previousWord} was <strong>{this.state.answer}</strong> and you chose <strong>{this.state.guess}</strong>!</p>
-    //     </div>
-    //   )
-    //   button = (
-    //     <button className="Button" type="submit">Try another word!</button>
-    //   )
-    // }
-
-    // if (this.state.correct === false) {
-    //   header = (
-    //     <h2>Good try, but not quite right :(</h2>
-    //   )
-    //   outcome = (
-    //     <div className="DisplayFeedback">
-    //       <p>The correct translation for {this.state.previousWord} was <strong>{this.state.answer}</strong> and you chose <strong>{this.state.guess}</strong>!</p>
-    //     </div>
-    //   );
-
-    //   button = (
-    //     <button className="Button" type="submit">Try another word!</button>
-    //   )
-    // }
-
-    // return (
-    //   <section id="LearningRoute">
-
-    //     {/* <p>Your total score is: {this.state.totalScore}</p> */}
-
-    //     { header }
-
-    //     { outcome }
-
-    //     <span className="word">{this.state.nextWord}</span>
-
-    //     <div className="CenterFormContainer">
-    //       <form onSubmit={this.handleFormSubmit}>
-    //         <label className="Label" htmlFor="learn-guess-input">What's the translation for this word?</label><br />
-    //         <input className="Input" id="learn-guess-input" name="guessInput" type="text" defaultValue="" required/><br />
-    //         {button}
-    //       </form>
-    //     </div>
-
-
-
-    //     <div className="DisplayScore"><p>Your total score is: {this.state.totalScore}</p></div>
-    //     <p>You have answered this word correctly {this.state.wordCorrectCount} times.</p>
-    //     <p>You have answered this word incorrectly {this.state.wordIncorrectCount} times.</p>
-
-    //   </section>
-    // );
   }
 }
 
