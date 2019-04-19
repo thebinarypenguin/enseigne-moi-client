@@ -10,14 +10,14 @@ class LearningRoute extends Component {
   state = {
 
     word: null,
-    wordCorrectCount: null,
-    wordIncorrectCount: null,
+    wordCorrectCount: 0,
+    wordIncorrectCount: 0,
 
     nextWord: null,
-    nextWordCorrectCount: null,
-    nextWordIncorrectCount: null,
+    nextWordCorrectCount: 0,
+    nextWordIncorrectCount: 0,
 
-    totalScore: null,
+    totalScore: 0,
 
     guess: null,
     answer: null,
@@ -79,8 +79,8 @@ class LearningRoute extends Component {
         correct: json.isCorrect,
         answer: json.answer,
         nextWord: json.nextWord,
-        nextWordCorrectCount: json.nextWordCorrectCount,
-        nextWordIncorrectCount: json.nextWordIncorrectCount,
+        nextWordCorrectCount: json.wordCorrectCount,
+        nextWordIncorrectCount: json.wordIncorrectCount,
         totalScore: json.totalScore,
         wordCorrectCount: correctCount,
         wordIncorrectCount: incorrectCount,
@@ -107,12 +107,17 @@ class LearningRoute extends Component {
 
       this.setState({
         word: json.nextWord,
-        totalScore: json.totalScore,
         wordCorrectCount: json.wordCorrectCount,
         wordIncorrectCount: json.wordIncorrectCount,
-        correct: null,
+
+        nextWordCorrectCount: 0,
+        nextWordIncorrectCount: 0,
+
+        totalScore: json.totalScore,
+
         guess: null,
         answer: null,
+        correct: null,
       });
     })
   };
