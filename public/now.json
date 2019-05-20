@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "alias": "enseigne-moi",
-  "name": "enseigne-moi",
+  "alias": "enseigne-moi-client",
+  "name": "enseigne-moi-client",
   "routes": [
       {
         "src": "^/static/(.*)",
