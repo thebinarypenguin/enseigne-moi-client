@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "alias": "ali-ethan-spaced-repetition",
-  "name": "spaced-repetition",
+  "alias": "enseigne-moi",
+  "name": "enseigne-moi",
   "routes": [
       {
         "src": "^/static/(.*)",
