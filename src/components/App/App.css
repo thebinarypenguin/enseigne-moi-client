@@ -31,9 +31,30 @@
   padding: 0.25rem 0.5rem;
 }
 
+.DemoCredentials {
+  display: flex;
+  justify-content: center;
+}
+
+.DemoCredentials div {
+  background-color: rgba(252, 226, 196, 0.3);
+  padding: 0.5rem;
+  border: 1px solid #fbca93;
+  border-radius: 5px;
+}
+
+.DemoCredentials ul {
+  padding: 0;
+  list-style-type: none;
+}
+
 .CenterFormContainer {
   display: flex;
   justify-content: center;
+}
+
+.AlignLeft {
+  text-align: left;
 }
 
 .AlignRight {

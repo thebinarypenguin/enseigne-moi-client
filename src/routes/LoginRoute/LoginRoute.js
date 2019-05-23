@@ -18,6 +18,14 @@ class LoginRoute extends Component {
   render() {
     return (
       <section id="LoginRoute">
+        <div className="DemoCredentials">
+          <div className="AlignLeft">
+            <ul>
+              <li>Demo username: <strong>admin</strong></li>
+              <li>Demo password: <strong>pass</strong></li>
+            </ul>
+          </div>
+        </div>
         <h2>Login</h2>
         <div className="CenterFormContainer">
           <LoginForm
